@@ -25,25 +25,29 @@ def format_date(day, month, year):
     formatted_year = ''.join(['*' if char.isdigit() else char for char in str(year).zfill(4)])
     return f"{formatted_day} {formatted_month} {formatted_year}"
 
-# Запрашиваем дату рождения у пользователя
-birth_day = int(input("Введите день рождения: "))
-birth_month = int(input("Введите месяц рождения: "))
-birth_year = int(input("Введите год рождения: "))
+def main():
+    # Запрашиваем дату рождения у пользователя
+    birth_day = int(input("Введите день рождения: "))
+    birth_month = int(input("Введите месяц рождения: "))
+    birth_year = int(input("Введите год рождения: "))
 
-# Определяем день недели
-day_of_week = get_day_of_week(birth_day, birth_month, birth_year)
-print(f"День недели: {day_of_week}")
+    # Определяем день недели
+    day_of_week = get_day_of_week(birth_day, birth_month, birth_year)
+    print(f"День недели: {day_of_week}")
 
-# Определяем, был ли год високосным
-if is_leap_year(birth_year):
-    print(f"Год {birth_year} был високосным")
-else:
-    print(f"Год {birth_year} не был високосным")
+    # Определяем, был ли год високосным
+    if is_leap_year(birth_year):
+        print(f"Год {birth_year} был високосным")
+    else:
+        print(f"Год {birth_year} не был високосным")
 
-# Определяем возраст пользователя
-age = calculate_age(birth_year, birth_month, birth_day)
-print(f"Вам {age} лет")
+    # Определяем возраст пользователя
+    age = calculate_age(birth_year, birth_month, birth_day)
+    print(f"Вам {age} лет")
 
-# Форматируем дату рождения с использованием звёздочек
-formatted_date = format_date(birth_day, birth_month, birth_year)
-print(f"Ваша дата рождения: {formatted_date}")
+    # Форматируем дату рождения с использованием звёздочек
+    formatted_date = format_date(birth_day, birth_month, birth_year)
+    print(f"Ваша дата рождения: {formatted_date}")
+
+if __name__ == "__main__":
+    main()
